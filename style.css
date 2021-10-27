@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.charContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.grafico{
+    display: flex;
+    height: 25vh;
+    width: 45%;
+    margin: 10px;
+    margin-left: 480px;
+    padding: 20px;
+    background-color: #faebd7;
+}

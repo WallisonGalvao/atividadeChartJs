@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficos</title>
+    
+       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+       <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="chartContainer">
+
+        <div class="grafico">
+            <canvas id="chartLine" style="width: 100%; height: 100%;"></canvas>
+        </div>
+
+        <div class="grafico">
+            <canvas id="chartBar" style="width: 100%; height: 100%;"></canvas>
+        </div>
+
+        <div class="grafico">
+            <canvas id="chartPie" style="width: 100%; height: 100%;"></canvas>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    var ctxLine = document.getElementById("chartLine").getContext("2d");
+    var rotulosLine = ["2011", "2012", "2013", "2014", "2015", "2016" ,"2017", "2018", "2019", "2020", "2021"];
+    var dataLine = [540.00, 622.00, 678.00, 724.00, 788.00, 880.00, 937.00, 954.00, 998.00, 1045.00, 1100.00];
+    var configLine = {
+    type: 'line',
+    data: {
+      labels: rotulosLine, // referenciando a variável de rótulos (labels) para o gráfico de linha
+      datasets: [
+        {
+          label: 'Salário Mínimo',
+          data: dataLine, // referenciando a variável de dados para o gráfico de linha
+          backgroundColor: [
+            '#FF000022',
+            '#FFFF0022',
+            '#FF00FF22',
+            '#00FFFF22',
+            '#99009922',
+            '#99990022',
+            '#F0F00022',
+            '#65002222',
+          ],
+          borderColor: [
+            '#FF0000',
+            '#FFFF00',
+            '#FF00FF',
+            '#00FFFF',
+            '#990099',
+            '#999900',
+            '#F0F000',
+            '#650022',
+          ],
+          borderWidth: 1
+        }
+      ]
+    },
+    options: {
+      // por padrão, vem como 'true', e faz com que o gráfico se 'mantenha com o mesmo aspecto de proporção', não ficando responsivo 
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+        }
+      }
+    }
+  }
+  var ax_chartLine = new Chart(ctxLine, configLine);
+
+  //média de salário por região
+  var ctxBar = document.getElementById("chartBar").getContext("2d");
+    var rotulosBar = ["Norte", "Nordeste", "Sudeste", "Sul", "Centro Oeste"];
+    var dataBar = [1711.00, 1539.00, 2585.00, 2499.00, 2498.00];
+    var configBar = {
+    type: 'bar',
+    data: {
+      labels: rotulosBar, // referenciando a variável de rótulos (labels) para o gráfico de linha
+      datasets: [
+        {
+          label: 'Média de Salários por Região',
+          data: dataBar, // referenciando a variável de dados para o gráfico de linha
+          backgroundColor: [
+            '#FF000022',
+            '#FFFF0022',
+            '#FF00FF22',
+            '#00FFFF22',
+            '#99009922',
+           
+          ],
+          borderColor: [
+            '#FF0000',
+            '#FFFF00',
+            '#FF00FF',
+            '#00FFFF',
+            '#990099',
+           
+          ],
+          borderWidth: 1
+        }
+      ]
+    },
+    options: {
+      // por padrão, vem como 'true', e faz com que o gráfico se 'mantenha com o mesmo aspecto de proporção', não ficando responsivo 
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+        }
+      }
+    }
+  }
+  var ax_chartBar = new Chart(ctxBar, configBar);
+
+  //Desemprego por região
+  var ctxPie = document.getElementById("chartPie").getContext("2d");
+    var rotulosPie = ["Brasil (total)","Norte", "Nordeste", "Sudeste", "Sul", "Centro Oeste"];
+    var dataPie = [11,10.6, 13.6, 11.4, 6.8, 9.3];
+    var configPie = {
+    type: 'pie',
+    data: {
+      labels: rotulosPie, // referenciando a variável de rótulos (labels) para o gráfico de linha
+      datasets: [
+        {
+          label: 'Desemprego por Região',
+          data: dataPie, // referenciando a variável de dados para o gráfico de linha
+          backgroundColor: [
+            '#008000',
+            '#FFFF0022',
+            '#FF00FF22',
+            '#00FFFF22',
+            '#99009922',
+            '#FF000022',
+           
+          ],
+          borderColor: [
+            '#0080000',
+            '#FFFF00',
+            '#FF00FF',
+            '#00FFFF',
+            '#990099',
+            '#ff0000',
+           
+          ],
+          borderWidth: 1
+        }
+      ]
+    },
+    options: {
+      // por padrão, vem como 'true', e faz com que o gráfico se 'mantenha com o mesmo aspecto de proporção', não ficando responsivo 
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+        }
+      }
+    }
+  }
+  var ax_chartPie = new Chart(ctxPie, configPie);
+</script>
